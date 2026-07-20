@@ -4,7 +4,9 @@
       "Bash(npx --yes eslint@8 script.js --no-eslintrc --env browser,es2021 --parser-options=ecmaVersion:2021)",
       "Bash(npx --yes eslint@8 script.js --no-eslintrc --env browser,es2021 --parser-options=ecmaVersion:2021 --rule '{\"no-unused-vars\":\"warn\",\"no-undef\":\"warn\"}')",
       "Bash(node -e ' *)",
-      "Bash(npx --yes html-validate index.html)"
+      "Bash(npx --yes html-validate index.html)",
+      "WebFetch(domain:pendejuelas.mx)",
+      "Bash(python3 -c ' *)"
     ]
   }
 }

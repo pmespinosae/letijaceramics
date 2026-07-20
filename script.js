@@ -72,6 +72,79 @@
   }
 
   /* ===================================================
+     Galería de categorías en "Obras Disponibles"
+     (al inicio solo se ven las categorías; al elegir una
+     se muestran todas sus piezas con precio y medidas)
+     =================================================== */
+  var catalog = document.getElementById('obras');
+  if (catalog) {
+    var catBlocks = Array.prototype.slice.call(catalog.querySelectorAll('.category-block'));
+    var catCards = Array.prototype.slice.call(catalog.querySelectorAll('.cat-card'));
+    var showcase = catalog.querySelector('.category-showcase');
+    var catIds = ['floreros', 'bowls', 'tazas', 'esculturas', 'otros'];
+
+    if (catBlocks.length && catCards.length) {
+      catalog.classList.add('js-catalog');
+
+      var scrollToEl = function (el) {
+        if (!el) return;
+        var y = el.getBoundingClientRect().top + window.pageYOffset - 76;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      };
+
+      var showAllCats = function () {
+        catBlocks.forEach(function (b) { b.classList.remove('show'); });
+        catalog.classList.remove('cat-open');
+        scrollToEl(showcase);
+      };
+
+      var showCategory = function (id, doScroll) {
+        var found = false;
+        catBlocks.forEach(function (b) {
+          var match = (b.id === id);
+          b.classList.toggle('show', match);
+          if (match) found = true;
+        });
+        if (!found) return false;
+        catalog.classList.add('cat-open');
+        if (doScroll) scrollToEl(document.getElementById(id));
+        return true;
+      };
+
+      // Botón "volver a las categorías": uno arriba y otro al final de cada categoría
+      var makeBack = function (extraClass) {
+        var back = document.createElement('button');
+        back.type = 'button';
+        back.className = 'cat-back' + (extraClass ? ' ' + extraClass : '');
+        back.innerHTML = '← Ver todas las categorías';
+        back.addEventListener('click', showAllCats);
+        return back;
+      };
+      catBlocks.forEach(function (b) {
+        b.insertBefore(makeBack(), b.firstChild);
+        b.appendChild(makeBack('cat-back-bottom'));
+      });
+
+      catCards.forEach(function (card) {
+        card.addEventListener('click', function (e) {
+          e.preventDefault();
+          var id = (card.getAttribute('href') || '').replace('#', '');
+          if (showCategory(id, true) && history.replaceState) {
+            history.replaceState(null, '', '#' + id);
+          }
+        });
+      });
+
+      var handleCatHash = function () {
+        var h = (location.hash || '').replace('#', '');
+        if (catIds.indexOf(h) !== -1) showCategory(h, true);
+      };
+      window.addEventListener('hashchange', handleCatHash);
+      handleCatHash(); // por si llegan con #categoria en la URL
+    }
+  }
+
+  /* ===================================================
      Lightbox / galería secuencial
      =================================================== */
   var lb = document.getElementById('lightbox');
