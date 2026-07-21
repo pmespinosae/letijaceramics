@@ -1,10 +1,30 @@
 {
   "categorias": [
-    { "id": "floreros", "nombre": "Floreros y Macetas", "imagen": "Florero Dodecaedro.png" },
-    { "id": "bowls", "nombre": "Bowls y Ensaladeras", "imagen": "Ensaladera verde.png" },
-    { "id": "tazas", "nombre": "Tazas", "imagen": "Taza 1a.png" },
-    { "id": "esculturas", "nombre": "Escultóricos", "imagen": "Adorno 3a.png" },
-    { "id": "otros", "nombre": "Otros", "imagen": "Bowl Terracota a.png" }
+    {
+      "id": "floreros",
+      "nombre": "Floreros y Macetas",
+      "imagen": "Florero Dodecaedro.png"
+    },
+    {
+      "id": "bowls",
+      "nombre": "Bowls y Ensaladeras",
+      "imagen": "Ensaladera verde.png"
+    },
+    {
+      "id": "tazas",
+      "nombre": "Tazas",
+      "imagen": "Taza 1a.png"
+    },
+    {
+      "id": "esculturas",
+      "nombre": "Escultóricos",
+      "imagen": "Adorno 3a.png"
+    },
+    {
+      "id": "otros",
+      "nombre": "Otros",
+      "imagen": "Bowl Terracota a.png"
+    }
   ],
   "productos": [
     {
@@ -15,7 +35,11 @@
       "medidas": "14 × 18 × 18 cm",
       "descripcion": "Escultura geométrica que transforma cualquier ramo en una pieza central. Doce caras que juegan con la luz.",
       "alt": "Florero Dodecaedro de cerámica artesanal con flores",
-      "fotos": ["Florero Dodecaedro.png", "Florero.jpeg", "Florero Geometrico.png"],
+      "fotos": [
+        "Florero Dodecaedro.png",
+        "Florero.jpeg",
+        "Florero Geometrico.png"
+      ],
       "mensajeWhatsApp": "Hola Letija, me interesa el Florero Dodecaedro ($_precio MX). ¿Me das más información?"
     },
     {
@@ -26,7 +50,13 @@
       "medidas": "6 × 23 × 4 cm",
       "descripcion": "Líneas puras y elegantes para un solo tallo o un ramo minimalista. Sobriedad que combina con todo.",
       "alt": "Florero Minimalista de cerámica artesanal",
-      "fotos": ["Florero Minimalista con Flores.png", "Florero 2a.png", "Florero 2b.png", "Florero 2c.png", "Florero 2d.png"],
+      "fotos": [
+        "Florero Minimalista con Flores.png",
+        "Florero 2a.png",
+        "Florero 2b.png",
+        "Florero 2c.png",
+        "Florero 2d.png"
+      ],
       "mensajeWhatsApp": "Hola Letija, me interesa el Florero Minimalista ($_precio MX). ¿Me das más información?"
     },
     {
@@ -37,7 +67,12 @@
       "medidas": "16 × 13 × 11.5 cm",
       "descripcion": "Florero de acabado plateado con presencia escultórica. Un brillo elegante y contemporáneo para tu mesa o repisa.",
       "alt": "Florero plateado de cerámica artesanal",
-      "fotos": ["Florero Negro.png", "Florero Negro 2.png", "Florero Negro 1.png", "Florero Negro 3.png"],
+      "fotos": [
+        "Florero Negro.png",
+        "Florero Negro 2.png",
+        "Florero Negro 1.png",
+        "Florero Negro 3.png"
+      ],
       "mensajeWhatsApp": "Hola Letija, me interesa el Florero Plateado ($_precio MX). ¿Me das más información?"
     },
     {
@@ -48,7 +83,11 @@
       "medidas": "Ø 21 × 10 cm",
       "descripcion": "Bowl de color vibrante para servir o decorar. Alegría hecha cerámica para tu mesa.",
       "alt": "Ensaladera verde de cerámica artesanal",
-      "fotos": ["Ensaladera verde.png", "Ensaladera Verde a.png", "Ensaladera Verde b.png"],
+      "fotos": [
+        "Ensaladera verde.png",
+        "Ensaladera Verde a.png",
+        "Ensaladera Verde b.png"
+      ],
       "mensajeWhatsApp": "Hola Letija, me interesa la Ensaladera Verde ($_precio MX). ¿Me das más información?"
     },
     {
@@ -59,7 +98,11 @@
       "medidas": "Ø 22 × 7.5 cm",
       "descripcion": "Ensaladera torneada a mano, perfecta para lucir en la mesa y servir con estilo.",
       "alt": "Ensaladera torneada de cerámica artesanal",
-      "fotos": ["Ensaladera 1a.png", "Ensaladera 1b.png", "Ensaladera 1c.png"],
+      "fotos": [
+        "Ensaladera 1a.png",
+        "Ensaladera 1b.png",
+        "Ensaladera 1c.png"
+      ],
       "mensajeWhatsApp": "Hola Letija, me interesa la Ensaladera torneada ($_precio MX). ¿Me das más información?"
     },
     {
@@ -70,7 +113,13 @@
       "medidas": "Ø 15 × 7.5 cm",
       "descripcion": "Bowl en tono café, cálido y versátil, ideal para el día a día o para decorar.",
       "alt": "Bowl café de cerámica artesanal",
-      "fotos": ["Bowl Cafe a.png", "Bowl café con cuchara.png", "Bowl Cafe b.png", "Bowl Cafe c.png", "Bowl Cafe d.png"],
+      "fotos": [
+        "Bowl Cafe a.png",
+        "Bowl café con cuchara.png",
+        "Bowl Cafe b.png",
+        "Bowl Cafe c.png",
+        "Bowl Cafe d.png"
+      ],
       "mensajeWhatsApp": "Hola Letija, me interesa el Bowl Café ($_precio MX). ¿Me das más información?"
     },
     {
@@ -81,7 +130,10 @@
       "medidas": "Ø 10 × 13.5 × 7.5 cm",
       "descripcion": "Una taza con mensaje que alegra cada café. El regalo cotidiano que se usa y se recuerda.",
       "alt": "Taza con mensaje de cerámica artesanal",
-      "fotos": ["Taza 1a.png", "Taza 1b.png"],
+      "fotos": [
+        "Taza 1a.png",
+        "Taza 1b.png"
+      ],
       "mensajeWhatsApp": "Hola Letija, me interesa la Taza con mensaje ($_precio MX). ¿Me das más información?"
     },
     {
@@ -92,7 +144,10 @@
       "medidas": "Ø 8 × 5.5 cm",
       "descripcion": "Taza azul de café express: pequeña, elegante y perfecta para tu ritual mañanero.",
       "alt": "Taza azul para café express de cerámica artesanal",
-      "fotos": ["Taza 2a.png", "Taza 2b.png"],
+      "fotos": [
+        "Taza 2a.png",
+        "Taza 2b.png"
+      ],
       "mensajeWhatsApp": "Hola Letija, me interesa la Taza Azul para café express ($_precio MX). ¿Me das más información?"
     },
     {
@@ -103,7 +158,11 @@
       "medidas": "Ø 9 × 9 cm",
       "descripcion": "Taza azul artesanal para tu bebida favorita. Color y carácter en cada sorbo.",
       "alt": "Taza azul de cerámica artesanal",
-      "fotos": ["Taza 3a.png", "Taza 3b.png", "Taza 3c.png"],
+      "fotos": [
+        "Taza 3a.png",
+        "Taza 3b.png",
+        "Taza 3c.png"
+      ],
       "mensajeWhatsApp": "Hola Letija, me interesa la Taza Azul ($_precio MX). ¿Me das más información?"
     },
     {
@@ -114,7 +173,10 @@
       "medidas": "Ø 8 × 5.5 cm",
       "descripcion": "Taza café de express, cálida y compacta, para disfrutar tu shot perfecto.",
       "alt": "Taza café para café express de cerámica artesanal",
-      "fotos": ["Taza 4b.png", "Taza 4a.png"],
+      "fotos": [
+        "Taza 4b.png",
+        "Taza 4a.png"
+      ],
       "mensajeWhatsApp": "Hola Letija, me interesa la Taza Café para café express ($_precio MX). ¿Me das más información?"
     },
     {
@@ -125,7 +187,11 @@
       "medidas": "Ø 10 × 9.5 cm",
       "descripcion": "Tazón artesanal decorado con pescados. Alegra tu desayuno con un toque marino.",
       "alt": "Tazón con pescados de cerámica artesanal",
-      "fotos": ["Tazon 1c.png", "Tazon 1a.png", "Tazon 1b.png"],
+      "fotos": [
+        "Tazon 1c.png",
+        "Tazon 1a.png",
+        "Tazon 1b.png"
+      ],
       "mensajeWhatsApp": "Hola Letija, me interesa el Tazón con Pescados ($_precio MX). ¿Me das más información?"
     },
     {
@@ -136,7 +202,10 @@
       "medidas": "Ø 10 × 9.5 cm",
       "descripcion": "Tazón con una ballena pintada a mano. Un detalle encantador para grandes y chicos.",
       "alt": "Tazón con ballena de cerámica artesanal",
-      "fotos": ["Tazon 2a.png", "Tazon 2b.png"],
+      "fotos": [
+        "Tazon 2a.png",
+        "Tazon 2b.png"
+      ],
       "mensajeWhatsApp": "Hola Letija, me interesa el Tazón con Ballena ($_precio MX). ¿Me das más información?"
     },
     {
@@ -147,7 +216,11 @@
       "medidas": "10 × 30 cm",
       "descripcion": "Juego de dos tonos en una pieza que se roba las miradas.",
       "alt": "Adorno decorativo bicolor de cerámica artesanal",
-      "fotos": ["Adorno 3a.png", "Adorno 3b.png", "Adorno 3c.png"],
+      "fotos": [
+        "Adorno 3a.png",
+        "Adorno 3b.png",
+        "Adorno 3c.png"
+      ],
       "mensajeWhatsApp": "Hola Letija, me interesa el Adorno Bicolor ($_precio MX). ¿Me das más información?"
     },
     {
@@ -158,7 +231,11 @@
       "medidas": "Ø 17.5 × 7.5 cm",
       "descripcion": "Calidez de la terracota en una pieza decorativa con textura artesanal.",
       "alt": "Adorno decorativo de terracota de cerámica artesanal",
-      "fotos": ["Bowl Terracota a.png", "Bowl Terracota b.png", "Bowl Terracota c.png"],
+      "fotos": [
+        "Bowl Terracota a.png",
+        "Bowl Terracota b.png",
+        "Bowl Terracota c.png"
+      ],
       "mensajeWhatsApp": "Hola Letija, me interesa el Adorno Terracota ($_precio MX). ¿Me das más información?"
     },
     {
@@ -169,18 +246,29 @@
       "medidas": "3 × 7 × 10 cm",
       "descripcion": "Pequeño joyero donde descansan tus anillos, lentes o llaves. Orden con estilo junto a la cama.",
       "alt": "Joyero de cerámica para buró",
-      "fotos": ["Joyero con Lentes.png", "Joyero en Buro.png", "Descansa Lentes a.png", "Descansa Lentes b.png", "Descansa Lentes c.png"],
+      "fotos": [
+        "Joyero con Lentes.png",
+        "Joyero en Buro.png",
+        "Descansa Lentes a.png",
+        "Descansa Lentes b.png",
+        "Descansa Lentes c.png"
+      ],
       "mensajeWhatsApp": "Hola Letija, me interesa el Joyero para buró ($_precio MX). ¿Me das más información?"
     },
     {
       "titulo": "Tequilero",
       "seccion": "obras",
       "categoria": "otros",
-      "precio": 500,
+      "precio": 525,
       "medidas": "12 × 4 cm",
       "descripcion": "Tequilero de cerámica para brindar con estilo. Pequeño gran protagonista de la reunión.",
       "alt": "Tequilero de cerámica artesanal",
-      "fotos": ["Tequilero 1a.png", "Tequilero 1b.png", "Tequilero 1c.png", "Tequilero 1d.png"],
+      "fotos": [
+        "Tequilero 1a.png",
+        "Tequilero 1b.png",
+        "Tequilero 1c.png",
+        "Tequilero 1d.png"
+      ],
       "mensajeWhatsApp": "Hola Letija, me interesa el Tequilero ($_precio MX). ¿Me das más información?"
     },
     {
@@ -190,7 +278,10 @@
       "medidas": "4 × 20 × 2 cm",
       "descripcion": "Tu frase favorita hecha cerámica. Un mensaje que decora y que permanece.",
       "alt": "Frases personalizadas en cerámica artesanal",
-      "fotos": ["Frases en Cerámica.jpeg", "Frases en Ceramica.png"],
+      "fotos": [
+        "Frases en Cerámica.jpeg",
+        "Frases en Ceramica.png"
+      ],
       "imagenCompleta": true,
       "mensajeWhatsApp": "Hola Letija, quiero encargar Frases en Cerámica (desde $_precio MX). ¿Me das más información?"
     },
@@ -201,7 +292,10 @@
       "medidas": "Ø 20 × 2.5 cm",
       "descripcion": "Letras e iniciales personalizadas en cerámica. Un detalle íntimo para tu espacio o tu regalo.",
       "alt": "Iniciales personalizadas en cerámica artesanal",
-      "fotos": ["Letra e.png", "letra en sala.png"],
+      "fotos": [
+        "Letra e.png",
+        "letra en sala.png"
+      ],
       "mensajeWhatsApp": "Hola Letija, quiero encargar Iniciales en cerámica ($_precio MX). ¿Me das más información?"
     },
     {
@@ -211,7 +305,9 @@
       "medidas": "3 × 20 × 35 cm",
       "descripcion": "Recibe con estilo. Un botanero artesanal que hace especial cualquier reunión.",
       "alt": "Botanero de cerámica artesanal",
-      "fotos": ["Botanero.png"],
+      "fotos": [
+        "Botanero.png"
+      ],
       "mensajeWhatsApp": "Hola Letija, quiero encargar un Botanero ($_precio MX). ¿Me das más información?"
     },
     {
@@ -221,7 +317,9 @@
       "medidas": "Ø 5 × 15 cm",
       "descripcion": "Pequeñas piezas decorativas hechas a mano, ideales para regalar.",
       "alt": "Adornos decorativos en cerámica artesanal",
-      "fotos": ["Adornos en ceramica.png"],
+      "fotos": [
+        "Adornos en ceramica.png"
+      ],
       "mensajeWhatsApp": "Hola Letija, quiero encargar Adornos en Cerámica (desde $_precio MX). ¿Me das más información?"
     },
     {
@@ -231,7 +329,9 @@
       "medidas": "110 × 25 × 4 cm",
       "descripcion": "Arte en cerámica para tu pared. Una pieza única que da personalidad a tu sala.",
       "alt": "Cuadro de cerámica artesanal para sala",
-      "fotos": ["Cuadro para sala.png"],
+      "fotos": [
+        "Cuadro para sala.png"
+      ],
       "mensajeWhatsApp": "Hola Letija, quiero encargar un Cuadro para Sala ($_precio MX). ¿Me das más información?"
     },
     {
@@ -241,7 +341,9 @@
       "medidas": "20 × 5 cm",
       "descripcion": "Pinos navideños de cerámica para llenar tu casa de espíritu decembrino. Hechos a mano.",
       "alt": "Árboles navideños de cerámica artesanal",
-      "fotos": ["Pinos navidenos.png"],
+      "fotos": [
+        "Pinos navidenos.png"
+      ],
       "mensajeWhatsApp": "Hola Letija, quiero encargar Árboles Navideños ($_precio MX). ¿Me das más información?"
     }
   ]
