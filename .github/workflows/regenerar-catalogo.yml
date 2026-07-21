@@ -1,0 +1,36 @@
+name: Regenerar catálogo
+
+# Se ejecuta automáticamente cada vez que productos.json cambia en main.
+# Corre build.js y sube el index.html regenerado, sin intervención humana.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'productos.json'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Regenerar index.html
+        run: node build.js
+
+      - name: Subir index.html si cambió
+        run: |
+          git config user.name "Catálogo automático"
+          git config user.email "actions@github.com"
+          git add index.html
+          git diff --staged --quiet || git commit -m "Regenerar catálogo automáticamente"
+          git diff --staged --quiet || git push
