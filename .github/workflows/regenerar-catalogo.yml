@@ -32,5 +32,9 @@ jobs:
           git config user.name "Catálogo automático"
           git config user.email "actions@github.com"
           git add index.html
-          git diff --staged --quiet || git commit -m "Regenerar catálogo automáticamente"
-          git diff --staged --quiet || git push
+          if git diff --staged --quiet; then
+            echo "Sin cambios en index.html, no se hace commit."
+          else
+            git commit -m "Regenerar catálogo automáticamente"
+            git push
+          fi
