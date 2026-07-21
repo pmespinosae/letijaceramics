@@ -32,7 +32,7 @@
       "seccion": "obras",
       "categoria": "floreros",
       "precio": 1000,
-      "medidas": "10 × 18× 18 cm",
+      "medidas": "10 Ø x 18Ø x 18 cm",
       "descripcion": "Escultura geométrica que transforma cualquier ramo en una pieza central. Doce caras que juegan con la luz.",
       "alt": "Florero Dodecaedro de cerámica artesanal con flores",
       "fotos": [
@@ -47,7 +47,7 @@
       "seccion": "obras",
       "categoria": "floreros",
       "precio": 920,
-      "medidas": "6 × 23 × 4 cm",
+      "medidas": "6 Ø 23 Ø 4 cm",
       "descripcion": "Líneas puras y elegantes para un solo tallo o un ramo minimalista. Sobriedad que combina con todo.",
       "alt": "Florero Minimalista de cerámica artesanal",
       "fotos": [
@@ -64,7 +64,7 @@
       "seccion": "obras",
       "categoria": "floreros",
       "precio": 900,
-      "medidas": "16 × 13 × 11.5 cm",
+      "medidas": "16 Ø 13 Ø 11.5 cm",
       "descripcion": "Florero de acabado plateado con presencia escultórica. Un brillo elegante y contemporáneo para tu mesa o repisa.",
       "alt": "Florero plateado de cerámica artesanal",
       "fotos": [
@@ -80,7 +80,7 @@
       "seccion": "obras",
       "categoria": "bowls",
       "precio": 1200,
-      "medidas": "Ø 21 × 10 cm",
+      "medidas": "Ø 21 Ø 10 cm",
       "descripcion": "Bowl de color vibrante para servir o decorar. Alegría hecha cerámica para tu mesa.",
       "alt": "Ensaladera verde de cerámica artesanal",
       "fotos": [
@@ -95,7 +95,7 @@
       "seccion": "obras",
       "categoria": "bowls",
       "precio": 900,
-      "medidas": "Ø 22 × 7.5 cm",
+      "medidas": "Ø 22 Ø 7.5 cm",
       "descripcion": "Ensaladera torneada a mano, perfecta para lucir en la mesa y servir con estilo.",
       "alt": "Ensaladera torneada de cerámica artesanal",
       "fotos": [
@@ -110,7 +110,7 @@
       "seccion": "obras",
       "categoria": "bowls",
       "precio": 800,
-      "medidas": "Ø 15 × 7.5 cm",
+      "medidas": "Ø 15 Ø 7.5 cm",
       "descripcion": "Bowl en tono café, cálido y versátil, ideal para el día a día o para decorar.",
       "alt": "Bowl café de cerámica artesanal",
       "fotos": [
@@ -127,7 +127,7 @@
       "seccion": "obras",
       "categoria": "tazas",
       "precio": 500,
-      "medidas": "Ø 10 × 13.5 × 7.5 cm",
+      "medidas": "Ø 10 Ø 13.5 Ø 7.5 cm",
       "descripcion": "Una taza con mensaje que alegra cada café. El regalo cotidiano que se usa y se recuerda.",
       "alt": "Taza con mensaje de cerámica artesanal",
       "fotos": [
@@ -141,8 +141,8 @@
       "seccion": "obras",
       "categoria": "tazas",
       "precio": 500,
-      "medidas": "Ø 8 × 5.5 cm",
-      "descripcion": "Taza azul de café express: pequeña, elegante y perfecta para tu ritual mañanero.",
+      "medidas": "Ø 8 Ø 5.5 cm",
+      "descripcion": "Taza azul de café express; pequeña, elegante y perfecta para tu ritual mañanero.",
       "alt": "Taza azul para café express de cerámica artesanal",
       "fotos": [
         "Taza 2a.png",
@@ -151,26 +151,26 @@
       "mensajeWhatsApp": "Hola Letija, me interesa la Taza Azul para café express ($_precio MX). ¿Me das más información?"
     },
     {
-      "titulo": "Taza Azul",
+      "titulo": "Taza Skyline",
       "seccion": "obras",
       "categoria": "tazas",
       "precio": 500,
-      "medidas": "Ø 9 × 9 cm",
+      "medidas": "Ø 9 Ø 9 cm",
       "descripcion": "Taza azul artesanal para tu bebida favorita. Color y carácter en cada sorbo.",
-      "alt": "Taza azul de cerámica artesanal",
+      "alt": "Taza Skyline de cerámica artesanal",
       "fotos": [
         "Taza 3a.png",
         "Taza 3b.png",
         "Taza 3c.png"
       ],
-      "mensajeWhatsApp": "Hola Letija, me interesa la Taza Azul ($_precio MX). ¿Me das más información?"
+      "mensajeWhatsApp": "Hola Letija, me interesa la Taza Skyline ($_precio MX). ¿Me das más información?"
     },
     {
       "titulo": "Taza Café para café express",
       "seccion": "obras",
       "categoria": "tazas",
       "precio": 500,
-      "medidas": "Ø 8 × 5.5 cm",
+      "medidas": "Ø 8 Ø 5.5 cm",
       "descripcion": "Taza café de express, cálida y compacta, para disfrutar tu shot perfecto.",
       "alt": "Taza café para café express de cerámica artesanal",
       "fotos": [
@@ -184,7 +184,7 @@
       "seccion": "obras",
       "categoria": "tazas",
       "precio": 500,
-      "medidas": "Ø 10 × 9.5 cm",
+      "medidas": "Ø 10 Ø 9.5 cm",
       "descripcion": "Tazón artesanal decorado con pescados. Alegra tu desayuno con un toque marino.",
       "alt": "Tazón con pescados de cerámica artesanal",
       "fotos": [
@@ -199,7 +199,7 @@
       "seccion": "obras",
       "categoria": "tazas",
       "precio": 500,
-      "medidas": "Ø 10 × 9.5 cm",
+      "medidas": "Ø 10 Ø 9.5 cm",
       "descripcion": "Tazón con una ballena pintada a mano. Un detalle encantador para grandes y chicos.",
       "alt": "Tazón con ballena de cerámica artesanal",
       "fotos": [
@@ -213,7 +213,7 @@
       "seccion": "obras",
       "categoria": "esculturas",
       "precio": 900,
-      "medidas": "10 × 30 cm",
+      "medidas": "10 Ø 30 cm",
       "descripcion": "Juego de dos tonos en una pieza que se roba las miradas.",
       "alt": "Escultura Moderna bicolor de cerámica artesanal",
       "fotos": [
@@ -228,7 +228,7 @@
       "seccion": "obras",
       "categoria": "otros",
       "precio": 975,
-      "medidas": "Ø 17.5 × 7.5 cm",
+      "medidas": "Ø 17.5 Ø 7.5 cm",
       "descripcion": "Calidez de la terracota en una pieza decorativa con textura artesanal.",
       "alt": "Bowl Terracota decorativo de terracota de cerámica artesanal",
       "fotos": [
@@ -243,7 +243,7 @@
       "seccion": "obras",
       "categoria": "otros",
       "precio": 500,
-      "medidas": "3 × 7 × 10 cm",
+      "medidas": "3 Ø 7 Ø 10 cm",
       "descripcion": "Pequeño joyero donde descansan tus anillos, lentes o llaves. Orden con estilo junto a la cama.",
       "alt": "Joyero de cerámica para burós",
       "fotos": [
@@ -260,7 +260,7 @@
       "seccion": "obras",
       "categoria": "otros",
       "precio": 600,
-      "medidas": "12 × 4 cm",
+      "medidas": "12 Ø 4 cm",
       "descripcion": "Tequilero de cerámica para brindar con estilo. Pequeño gran protagonista de la reunión.",
       "alt": "Tequilero de cerámica artesanal",
       "fotos": [
@@ -275,7 +275,7 @@
       "titulo": "Frases en Cerámica",
       "seccion": "sobre-pedido",
       "precio": 1000,
-      "medidas": "4 × 20 × 2 cm",
+      "medidas": "40 Ø 20 Ø 2 cm",
       "descripcion": "Tu frase favorita hecha cerámica. Un mensaje que decora y que permanece.",
       "alt": "Frases personalizadas en cerámica artesanal",
       "fotos": [
@@ -289,7 +289,7 @@
       "titulo": "Iniciales",
       "seccion": "sobre-pedido",
       "precio": 600,
-      "medidas": "Ø 20 × 2.5 cm",
+      "medidas": "Ø 20 Ø 2.5 cm",
       "descripcion": "Letras e iniciales personalizadas en cerámica. Un detalle íntimo para tu espacio o tu regalo.",
       "alt": "Iniciales personalizadas en cerámica artesanal",
       "fotos": [
@@ -302,7 +302,7 @@
       "titulo": "Botanero",
       "seccion": "sobre-pedido",
       "precio": 900,
-      "medidas": "3 × 20 × 35 cm",
+      "medidas": "3 Ø 20 Ø 35 cm",
       "descripcion": "Recibe con estilo. Un botanero artesanal que hace especial cualquier reunión.",
       "alt": "Botanero de cerámica artesanal",
       "fotos": [
@@ -314,7 +314,7 @@
       "titulo": "Adornos en Cerámica",
       "seccion": "sobre-pedido",
       "precio": 700,
-      "medidas": "Ø 5 × 15 cm",
+      "medidas": "Ø 5 Ø 15 cm",
       "descripcion": "Pequeñas piezas decorativas hechas a mano, ideales para regalar.",
       "alt": "Adornos decorativos en cerámica artesanal",
       "fotos": [
@@ -326,7 +326,7 @@
       "titulo": "Cuadro para Sala",
       "seccion": "sobre-pedido",
       "precio": 1600,
-      "medidas": "110 × 25 × 4 cm",
+      "medidas": "110 Ø 25 Ø 4 cm",
       "descripcion": "Arte en cerámica para tu pared. Una pieza única que da personalidad a tu sala.",
       "alt": "Cuadro de cerámica artesanal para sala",
       "fotos": [
@@ -338,7 +338,7 @@
       "titulo": "Árboles Navideños",
       "seccion": "sobre-pedido",
       "precio": 1600,
-      "medidas": "20 × 5 cm",
+      "medidas": "20 Ø 5 cm",
       "descripcion": "Pinos navideños de cerámica para llenar tu casa de espíritu decembrino. Hechos a mano.",
       "alt": "Árboles navideños de cerámica artesanal",
       "fotos": [
