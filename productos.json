@@ -224,19 +224,19 @@
       "mensajeWhatsApp": "Hola Letija, me interesa la Escultura Moderna ($_precio MX). ¿Me das más información?"
     },
     {
-      "titulo": "Adorno Terracota",
+      "titulo": "Bowl Terracota",
       "seccion": "obras",
       "categoria": "otros",
       "precio": 900,
       "medidas": "Ø 17.5 × 7.5 cm",
       "descripcion": "Calidez de la terracota en una pieza decorativa con textura artesanal.",
-      "alt": "Adorno decorativo de terracota de cerámica artesanal",
+      "alt": "Bowl Terracota decorativo de terracota de cerámica artesanal",
       "fotos": [
         "Bowl Terracota a.png",
         "Bowl Terracota b.png",
         "Bowl Terracota c.png"
       ],
-      "mensajeWhatsApp": "Hola Letija, me interesa el Adorno Terracota ($_precio MX). ¿Me das más información?"
+      "mensajeWhatsApp": "Hola Letija, me interesa el Bowl Terracota ($_precio MX). ¿Me das más información?"
     },
     {
       "titulo": "Joyero para buró",
