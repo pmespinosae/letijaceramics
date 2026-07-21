@@ -6,7 +6,13 @@
       "Bash(node -e ' *)",
       "Bash(npx --yes html-validate index.html)",
       "WebFetch(domain:pendejuelas.mx)",
-      "Bash(python3 -c ' *)"
+      "Bash(python3 -c ' *)",
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "Bash(gh auth *)",
+      "Bash(git add *)",
+      "Bash(node build.js)",
+      "Bash(node \"C:\\\\Users\\\\pmesp\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\D--Letija-Ceramics\\\\ff19625a-95d4-4729-9f8a-c902148f9cfe\\\\scratchpad\\\\verify.js\")"
     ]
   }
 }
