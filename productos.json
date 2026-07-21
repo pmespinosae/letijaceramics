@@ -32,7 +32,7 @@
       "seccion": "obras",
       "categoria": "floreros",
       "precio": 1000,
-      "medidas": "14 × 18 × 18 cm",
+      "medidas": "10 × 18 × 18 cm",
       "descripcion": "Escultura geométrica que transforma cualquier ramo en una pieza central. Doce caras que juegan con la luz.",
       "alt": "Florero Dodecaedro de cerámica artesanal con flores",
       "fotos": [
@@ -245,7 +245,7 @@
       "precio": 500,
       "medidas": "3 × 7 × 10 cm",
       "descripcion": "Pequeño joyero donde descansan tus anillos, lentes o llaves. Orden con estilo junto a la cama.",
-      "alt": "Joyero de cerámica para buró",
+      "alt": "Joyero de cerámica para burós",
       "fotos": [
         "Joyero con Lentes.png",
         "Joyero en Buro.png",
@@ -253,13 +253,13 @@
         "Descansa Lentes b.png",
         "Descansa Lentes c.png"
       ],
-      "mensajeWhatsApp": "Hola Letija, me interesa el Joyero para buró ($_precio MX). ¿Me das más información?"
+      "mensajeWhatsApp": "Hola Letija, me interesa el Joyero para burós ($_precio MX). ¿Me das más información?"
     },
     {
       "titulo": "Tequilero",
       "seccion": "obras",
       "categoria": "otros",
-      "precio": 525,
+      "precio": 500,
       "medidas": "12 × 4 cm",
       "descripcion": "Tequilero de cerámica para brindar con estilo. Pequeño gran protagonista de la reunión.",
       "alt": "Tequilero de cerámica artesanal",
