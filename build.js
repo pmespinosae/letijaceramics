@@ -28,6 +28,28 @@ function encodeFile(name) {
   return encodeURIComponent(name);
 }
 
+/* ---------- WebP: usar la versión .webp si existe junto al original ---------- */
+function rutaWebp(nombreArchivo) {
+  return nombreArchivo.replace(/\.(png|jpe?g)$/i, '.webp');
+}
+function tieneWebp(nombreArchivo) {
+  var webp = rutaWebp(nombreArchivo);
+  if (webp === nombreArchivo) return false; // no era png/jpg/jpeg
+  return fs.existsSync(path.join(ROOT, webp));
+}
+/* Genera <picture> con fuente WebP si existe, si no un <img> normal */
+function imgConWebp(nombreArchivo, atributosImg, indent) {
+  var pad = ' '.repeat(indent);
+  var imgTag = pad + '<img src="' + encodeFile(nombreArchivo) + '" ' + atributosImg + ' />';
+  if (!tieneWebp(nombreArchivo)) return imgTag;
+  return (
+    pad + '<picture>\n' +
+    pad + '  <source srcset="' + encodeFile(rutaWebp(nombreArchivo)) + '" type="image/webp" />\n' +
+    pad + '  ' + '<img src="' + encodeFile(nombreArchivo) + '" ' + atributosImg + ' />\n' +
+    pad + '</picture>'
+  );
+}
+
 function formatPrecioVisible(n) {
   return Number(n).toLocaleString('en-US');
 }
@@ -43,9 +65,10 @@ function waHref(producto) {
 
 /* ---------- Renderizar una tarjeta de categoría ---------- */
 function renderCatCard(cat) {
+  var media = imgConWebp(cat.imagen, 'alt="' + escapeHtml(cat.nombre) + '" loading="lazy"', 0).trim();
   return (
     '          <a class="cat-card" href="#' + cat.id + '" aria-label="Ver ' + escapeHtml(cat.nombre) + '">\n' +
-    '            <span class="cat-card-media"><img src="' + encodeFile(cat.imagen) + '" alt="' + escapeHtml(cat.nombre) + '" loading="lazy" /></span>\n' +
+    '            <span class="cat-card-media">' + media + '</span>\n' +
     '            <span class="cat-card-name">' + escapeHtml(cat.nombre) + ' <span class="arrow" aria-hidden="true">→</span></span>\n' +
     '          </a>'
   );
@@ -60,10 +83,11 @@ function renderProductCard(p, indent) {
   const badge = esPlural
     ? pad + '    <span class="media-badge" aria-hidden="true">🔍 ' + numFotos + ' fotos</span>\n'
     : '';
+  var mediaImg = imgConWebp(p.fotos[0], 'alt="' + escapeHtml(p.alt) + '" loading="lazy"', indent + 4);
   return (
     pad + '<article class="product-card" data-title="' + escapeHtml(p.titulo) + '" data-images="' + p.fotos.map(encodeFile).join('|') + '">\n' +
     pad + '  <button type="button" class="product-media' + mediaClass + '" aria-label="Ver ' + (esPlural ? 'imágenes' : 'imagen') + ' de ' + escapeHtml(p.titulo) + '">\n' +
-    pad + '    <img src="' + encodeFile(p.fotos[0]) + '" alt="' + escapeHtml(p.alt) + '" loading="lazy" />\n' +
+    mediaImg + '\n' +
     badge +
     pad + '  </button>\n' +
     pad + '  <div class="product-body">\n' +
