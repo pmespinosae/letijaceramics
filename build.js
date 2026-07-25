@@ -84,8 +84,10 @@ function renderProductCard(p, indent) {
     ? pad + '    <span class="media-badge" aria-hidden="true">🔍 ' + numFotos + ' fotos</span>\n'
     : '';
   var mediaImg = imgConWebp(p.fotos[0], 'alt="' + escapeHtml(p.alt) + '" loading="lazy"', indent + 4);
+  // Lista paralela: versión .webp de cada foto si existe (para la galería ampliada)
+  var fotosWebp = p.fotos.map(function (f) { return tieneWebp(f) ? rutaWebp(f) : f; });
   return (
-    pad + '<article class="product-card" data-title="' + escapeHtml(p.titulo) + '" data-images="' + p.fotos.map(encodeFile).join('|') + '">\n' +
+    pad + '<article class="product-card" data-title="' + escapeHtml(p.titulo) + '" data-images="' + p.fotos.map(encodeFile).join('|') + '" data-images-webp="' + fotosWebp.map(encodeFile).join('|') + '">\n' +
     pad + '  <button type="button" class="product-media' + mediaClass + '" aria-label="Ver ' + (esPlural ? 'imágenes' : 'imagen') + ' de ' + escapeHtml(p.titulo) + '">\n' +
     mediaImg + '\n' +
     badge +

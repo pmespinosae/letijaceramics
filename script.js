@@ -203,12 +203,23 @@
     render();
   }
 
+  // ¿El navegador soporta WebP? (se calcula una sola vez)
+  var soportaWebp = (function () {
+    try {
+      var c = document.createElement('canvas');
+      return c.toDataURL('image/webp').indexOf('data:image/webp') === 0;
+    } catch (e) { return false; }
+  })();
+
   // Abrir desde cada tarjeta
   document.querySelectorAll('.product-card').forEach(function (card) {
     var trigger = card.querySelector('.product-media');
     if (!trigger) return;
-    var data = card.getAttribute('data-images') || '';
-    var list = data.split('|').filter(function (s) { return s.trim() !== ''; });
+    // Si el navegador soporta WebP y hay lista .webp, usarla (más ligera); si no, la original
+    var attr = (soportaWebp && card.getAttribute('data-images-webp'))
+      ? card.getAttribute('data-images-webp')
+      : (card.getAttribute('data-images') || '');
+    var list = attr.split('|').filter(function (s) { return s.trim() !== ''; });
     var name = card.getAttribute('data-title') || '';
     if (list.length === 0) return;
     trigger.addEventListener('click', function () { open(list, name, 0); });
