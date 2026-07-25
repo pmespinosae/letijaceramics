@@ -97,7 +97,9 @@ function renderProductCard(p, indent) {
     pad + '    <p class="product-desc">' + escapeHtml(p.descripcion) + '</p>\n' +
     pad + '    <p class="product-dims">Medidas: ' + escapeHtml(p.medidas) + '</p>\n' +
     pad + '    <div class="product-footer">\n' +
-    pad + '      <span class="product-price">$' + formatPrecioVisible(p.precio) + ' <span>MX</span></span>\n' +
+    (p.ocultarPrecio
+      ? ''
+      : pad + '      <span class="product-price">$' + formatPrecioVisible(p.precio) + ' <span>MX</span></span>\n') +
     pad + '      <a class="btn btn-primary btn-sm" target="_blank" rel="noopener" href="' + waHref(p) + '">Me interesa</a>\n' +
     pad + '    </div>\n' +
     pad + '  </div>\n' +
@@ -157,6 +159,16 @@ function main() {
     sobrePedidoHtml
   );
 
+  /* 3b) Obras Anteriores */
+  const productosAnteriores = productos.filter(function (p) { return p.seccion === 'anteriores'; });
+  const anterioresHtml = productosAnteriores.map(function (p) { return renderProductCard(p, 10); }).join('\n\n');
+  html = replaceBetween(
+    html,
+    '<!-- AUTO:PRODUCTOS:anteriores:START -->',
+    '<!-- AUTO:PRODUCTOS:anteriores:END -->',
+    anterioresHtml
+  );
+
   /* 4) JSON-LD: ItemList de productos (solo Obras Disponibles) */
   const productosObras = productos.filter(function (p) { return p.seccion === 'obras'; });
   const itemListElement = productosObras.map(function (p, i) {
@@ -189,10 +201,12 @@ function main() {
     }
   );
 
-  /* 5) JSON-LD: priceRange en LocalBusiness, calculado de todos los productos */
-  const todosPrecios = productos.map(function (p) { return p.precio; });
-  const min = Math.min.apply(null, todosPrecios);
-  const max = Math.max.apply(null, todosPrecios);
+  /* 5) JSON-LD: priceRange en LocalBusiness, solo piezas a la venta (no "anteriores") */
+  const preciosVenta = productos
+    .filter(function (p) { return p.seccion !== 'anteriores' && !p.ocultarPrecio; })
+    .map(function (p) { return p.precio; });
+  const min = Math.min.apply(null, preciosVenta);
+  const max = Math.max.apply(null, preciosVenta);
   const priceRange = '$' + min + ' - $' + max + ' MXN';
   html = html.replace(
     /(<script type="application\/ld\+json" id="jsonld-business">[\s\S]*?"priceRange":\s*")[^"]*(")/,

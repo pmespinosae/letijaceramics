@@ -325,7 +325,8 @@
     },
     {
       "titulo": "Cuadro para Sala",
-      "seccion": "sobre-pedido",
+      "seccion": "anteriores",
+      "ocultarPrecio": true,
       "precio": 2000,
       "medidas": "110 × 25 × 4 cm",
       "descripcion": "Arte en cerámica para tu pared. Una pieza única que da personalidad a tu sala.",
@@ -333,7 +334,7 @@
       "fotos": [
         "Cuadro para sala.png"
       ],
-      "mensajeWhatsApp": "Hola Letija, quiero encargar un Cuadro para Sala ($_precio MX). ¿Me das más información?"
+      "mensajeWhatsApp": "Hola Letija, me gustó el Cuadro para Sala de tus obras anteriores. ¿Me das más información?"
     },
     {
       "titulo": "Árboles Navideños",
