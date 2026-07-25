@@ -29,10 +29,17 @@ def main():
     saltadas = 0
     errores = 0
 
-    for archivo in sorted(ROOT.iterdir()):
-        if not archivo.is_file() or archivo.suffix.lower() not in EXTENSIONES:
-            continue
+    # Orden: si un mismo nombre existe como .png y .jpeg, el .png tiene prioridad
+    # (así el .webp se genera de la versión de mejor calidad, no del .jpeg).
+    def prioridad(p):
+        return (p.stem.lower(), 0 if p.suffix.lower() == ".png" else 1)
 
+    archivos = sorted(
+        [p for p in ROOT.iterdir() if p.is_file() and p.suffix.lower() in EXTENSIONES],
+        key=prioridad,
+    )
+
+    for archivo in archivos:
         destino = archivo.with_suffix(".webp")
         if destino.exists():
             saltadas += 1
