@@ -83,7 +83,8 @@ function renderProductCard(p, indent) {
   const badge = esPlural
     ? pad + '    <span class="media-badge" aria-hidden="true">🔍 ' + numFotos + ' fotos</span>\n'
     : '';
-  var mediaImg = imgConWebp(p.fotos[0], 'alt="' + escapeHtml(p.alt) + '" loading="lazy"', indent + 4);
+  var estiloPos = p.posicion ? ' style="object-position: ' + escapeHtml(p.posicion) + '"' : '';
+  var mediaImg = imgConWebp(p.fotos[0], 'alt="' + escapeHtml(p.alt) + '" loading="lazy"' + estiloPos, indent + 4);
   // Lista paralela: versión .webp de cada foto si existe (para la galería ampliada)
   var fotosWebp = p.fotos.map(function (f) { return tieneWebp(f) ? rutaWebp(f) : f; });
   return (
