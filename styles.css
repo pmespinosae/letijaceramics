@@ -453,7 +453,7 @@ a { color: inherit; text-decoration: none; }
   position: relative;
   display: block;
   width: 100%;
-  aspect-ratio: 1 / 1; /* cuadrado: recorta el fondo para que la pieza se vea grande */
+  aspect-ratio: 1 / 1; /* recuadro cuadrado */
   border: none;
   border-bottom: 1px solid var(--beige-deep);
   padding: 0;
@@ -464,11 +464,13 @@ a { color: inherit; text-decoration: none; }
 }
 .product-media img {
   width: 100%; height: 100%;
-  object-fit: cover;          /* la pieza llena el recuadro; se recorta el fondo sobrante */
+  /* La pieza SIEMPRE se ve completa: si la foto cabe en el cuadro lo llena;
+     si no cabe, se muestra más pequeña (sin recortar) con fondo alrededor. */
+  object-fit: contain;
   object-position: center;
   transition: transform .5s var(--ease);
 }
-/* Excepción: fotos que deben verse completas, sin recortar (p.ej. panorámicas) */
+/* .media-contain se conserva por compatibilidad (mismo comportamiento) */
 .product-media.media-contain img {
   object-fit: contain;
 }
