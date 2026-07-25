@@ -474,6 +474,10 @@ a { color: inherit; text-decoration: none; }
 .product-media.media-contain img {
   object-fit: contain;
 }
+/* Excepción: piezas cuya foto ya viene recortada al objeto y debe LLENAR el recuadro */
+.product-media.media-cover img {
+  object-fit: cover;
+}
 .product-card:hover .product-media img { transform: scale(1.04); }
 .media-badge {
   position: absolute;

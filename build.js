@@ -79,7 +79,7 @@ function renderProductCard(p, indent) {
   const pad = ' '.repeat(indent);
   const numFotos = p.fotos.length;
   const esPlural = numFotos > 1;
-  const mediaClass = p.imagenCompleta ? ' media-contain' : '';
+  const mediaClass = p.llenar ? ' media-cover' : (p.imagenCompleta ? ' media-contain' : '');
   const badge = esPlural
     ? pad + '    <span class="media-badge" aria-hidden="true">🔍 ' + numFotos + ' fotos</span>\n'
     : '';
