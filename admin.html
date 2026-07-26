@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Administrador de Catálogo · Letija Ceramics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="Logotipo.png" />
+  <style>
+    :root{--ink:#141414;--muted:#6a6a6a;--line:#e6e6e2;--bg:#fff;--soft:#f6f6f4;
+      --azul:#0047AB;--verde:#1a7f3c;--rojo:#b3261e;--amarillo:#fff7d6;--nuevo:#e7f7ec;--del:#fdeceb;}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--soft);line-height:1.5}
+    /* ---- Login ---- */
+    #login{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+    #login .card{width:100%;max-width:360px;text-align:center;background:#fff;padding:32px 26px;border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,.08)}
+    #login img{width:56px;height:56px;object-fit:contain;margin-bottom:18px}
+    #login h1{font-family:'Fraunces',serif;font-weight:600;font-size:1.35rem;margin-bottom:6px}
+    #login p{color:var(--muted);font-size:.9rem;margin-bottom:22px}
+    input,select,textarea{font-family:inherit;font-size:.95rem;color:var(--ink)}
+    #login input{width:100%;padding:13px 14px;border:1.5px solid var(--line);border-radius:6px;text-align:center;margin-bottom:12px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;background:var(--ink);color:#fff;border:1.5px solid var(--ink);
+      border-radius:6px;padding:11px 18px;font-weight:600;font-size:.9rem;cursor:pointer;transition:opacity .2s}
+    .btn:hover{opacity:.85}
+    .btn.ghost{background:#fff;color:var(--ink)}
+    .btn.ghost:hover{background:var(--soft);opacity:1}
+    .btn.sm{padding:8px 13px;font-size:.82rem}
+    .btn:disabled{opacity:.45;cursor:not-allowed}
+    .err{color:var(--rojo);font-size:.85rem;min-height:18px;margin-top:4px}
+    .hidden{display:none!important}
+    /* ---- App ---- */
+    header.top{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line);
+      display:flex;align-items:center;gap:14px;padding:12px 18px;flex-wrap:wrap}
+    header.top .brand{display:flex;align-items:center;gap:10px;font-family:'Inter';font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:.85rem}
+    header.top .brand img{width:30px;height:30px;object-fit:contain}
+    header.top .spacer{flex:1}
+    .toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:12px 18px;background:#fff;border-bottom:1px solid var(--line)}
+    .toolbar label{font-size:.8rem;color:var(--muted);font-weight:600}
+    .toolbar select{padding:7px 10px;border:1.5px solid var(--line);border-radius:6px;background:#fff}
+    .status{font-size:.82rem;color:var(--muted)}
+    .status.ok{color:var(--verde)} .status.bad{color:var(--rojo)}
+    .wrap{padding:16px 18px 80px}
+    .tablebox{overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:10px}
+    table{border-collapse:collapse;width:100%;min-width:1150px;font-size:.86rem}
+    th,td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
+    th{position:sticky;top:0;background:var(--soft);font-weight:600;font-size:.76rem;text-transform:uppercase;letter-spacing:.03em;color:var(--muted);z-index:5}
+    tr.mod{background:var(--amarillo)}
+    tr.nuevo{background:var(--nuevo)}
+    tr.del{background:var(--del);text-decoration:line-through;opacity:.7}
+    td input[type=text],td input[type=number],td select,td textarea{width:100%;border:1px solid transparent;border-radius:4px;padding:5px 6px;background:transparent}
+    td input:focus,td select:focus,td textarea:focus{outline:none;border-color:var(--azul);background:#fff}
+    td textarea{resize:vertical;min-height:34px;font-size:.82rem}
+    td.nombre-actual{font-weight:600;white-space:nowrap}
+    td.check{text-align:center}
+    td.check input{width:18px;height:18px;cursor:pointer}
+    .col-precio input{max-width:80px}
+    .fotos-cell textarea{min-height:46px;font-family:monospace;font-size:.76rem}
+    .footbar{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);
+      padding:10px 18px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;z-index:15}
+    .footbar .spacer{flex:1}
+    .count{font-size:.8rem;color:var(--muted)}
+    .toast{position:fixed;bottom:70px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;
+      padding:11px 18px;border-radius:8px;font-size:.88rem;z-index:40;box-shadow:0 8px 24px rgba(0,0,0,.25);max-width:90vw}
+    .toast.bad{background:var(--rojo)} .toast.ok{background:var(--verde)}
+    details.help{margin:0 18px 12px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:4px 14px}
+    details.help summary{cursor:pointer;font-weight:600;font-size:.85rem;padding:8px 0}
+    details.help p,details.help li{font-size:.84rem;color:var(--muted);margin:4px 0}
+    details.help ul{padding-left:20px}
+    code{background:var(--soft);padding:1px 5px;border-radius:4px;font-size:.82rem}
+    .tokenrow{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+    .tokenrow input{flex:1;min-width:200px;padding:9px 11px;border:1.5px solid var(--line);border-radius:6px;font-family:monospace;font-size:.8rem}
+  </style>
+</head>
+<body>
+
+  <!-- ===== Pantalla de acceso ===== -->
+  <div id="login">
+    <div class="card">
+      <img src="Logotipo.png" alt="Letija Ceramics" />
+      <h1>Administrador de Catálogo</h1>
+      <p>Escribe la contraseña para entrar.</p>
+      <form id="loginForm" autocomplete="off">
+        <input type="password" id="pass" placeholder="Contraseña" autofocus />
+        <button type="submit" class="btn" style="width:100%">Entrar</button>
+        <p class="err" id="loginErr"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===== Aplicación ===== -->
+  <div id="app" class="hidden">
+    <header class="top">
+      <span class="brand"><img src="Logotipo.png" alt="" /> Catálogo</span>
+      <span class="spacer"></span>
+      <span class="status" id="status">Cargando…</span>
+      <button class="btn ghost sm" id="btnReload">↻ Recargar</button>
+      <button class="btn ghost sm" id="btnToken">🔑 Token</button>
+    </header>
+
+    <!-- Configurar token -->
+    <details class="help" id="tokenBox">
+      <summary>🔑 Conexión con GitHub (necesaria para guardar)</summary>
+      <p>Pega aquí tu <strong>token de GitHub</strong> (el mismo que usa el agente, o uno nuevo con permiso «Contents: Read and write» sobre el repositorio <code>letijaceramics</code>). Se guarda solo en <strong>este navegador</strong>, nunca se publica.</p>
+      <div class="tokenrow">
+        <input type="password" id="tokenInput" placeholder="github_pat_..." />
+        <button class="btn sm" id="tokenSave">Guardar token</button>
+        <button class="btn ghost sm" id="tokenClear">Borrar</button>
+      </div>
+      <p id="tokenState" class="status"></p>
+    </details>
+
+    <details class="help">
+      <summary>¿Cómo funciona? (léelo una vez)</summary>
+      <ul>
+        <li>Edita cualquier celda: al cambiar algo, la casilla <strong>Modificado</strong> se enciende sola y la fila se pinta de amarillo.</li>
+        <li><strong>Nuevo Nombre</strong>: solo si quieres renombrar la pieza (si lo dejas vacío, conserva el nombre actual). Al renombrar, el mensaje de WhatsApp y el texto alterno se actualizan solos.</li>
+        <li><strong>Sección</strong> y <strong>Categoría</strong>: cámbialas para mover la pieza de lugar.</li>
+        <li><strong>Eliminar</strong>: marca la casilla; la pieza se borra al guardar (te preguntará si borrar también las fotos).</li>
+        <li><strong>+ Agregar pieza</strong>: crea una fila nueva (marca «Nuevo»). Escribe los nombres de sus fotos en la columna Fotos, tal como se llaman los archivos que subiste.</li>
+        <li><strong>Descargar CSV</strong> / <strong>Cargar CSV</strong>: para editar en Excel y volver a subir.</li>
+        <li><strong>Guardar cambios</strong>: publica todo en el sitio (tarda unos minutos en verse). También puedes <strong>Descargar productos.json</strong> como respaldo.</li>
+      </ul>
+    </details>
+
+    <div class="toolbar">
+      <label>Sección
+        <select id="fSeccion"><option value="">Todas</option></select>
+      </label>
+      <label>Categoría
+        <select id="fCategoria"><option value="">Todas</option></select>
+      </label>
+      <span class="spacer" style="flex:1"></span>
+      <button class="btn ghost sm" id="btnAdd">+ Agregar pieza</button>
+      <button class="btn ghost sm" id="btnCsvDown">⬇ Descargar CSV</button>
+      <button class="btn ghost sm" id="btnCsvUp">⬆ Cargar CSV</button>
+      <input type="file" id="csvFile" accept=".csv,text/csv" class="hidden" />
+    </div>
+
+    <div class="wrap">
+      <div class="tablebox">
+        <table id="tabla">
+          <thead>
+            <tr>
+              <th>Sección</th><th>Categoría</th><th>Nombre actual</th><th>Nuevo Nombre</th>
+              <th>Descripción</th><th>Medidas</th><th>Precio</th><th>Fotos (una por línea)</th>
+              <th>Modif.</th><th>Elim.</th><th>Nuevo</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="footbar">
+      <span class="count" id="count"></span>
+      <span class="spacer"></span>
+      <button class="btn ghost sm" id="btnJson">⬇ Descargar productos.json</button>
+      <button class="btn" id="btnSave">💾 Guardar cambios en el sitio</button>
+    </div>
+  </div>
+
+  <script>
+  (function(){
+    "use strict";
+    /* ================= Configuración ================= */
+    var PASSWORD = "JeroyElena.1315";
+    var REPO = "pmespinosae/letijaceramics";
+    var FILE = "productos.json";
+    var SECCIONES = ["obras","sobre-pedido","anteriores"];
+    var CAT_VALIDAS = ["floreros","bowls","tazas","esculturas","otros"];
+    var TOKEN_KEY = "letija_gh_token";
+
+    /* ================= Estado ================= */
+    var datos = null;      // objeto productos.json { categorias, productos }
+    var sha = null;        // sha del archivo en GitHub
+    var filas = [];        // [{orig, el:{inputs...}, esNuevo}]
+    var catNombre = {};    // id -> nombre categoría
+
+    /* ================= Utilidades ================= */
+    function $(id){ return document.getElementById(id); }
+    function token(){ return localStorage.getItem(TOKEN_KEY) || ""; }
+    function toast(msg, tipo){
+      var t = document.createElement('div');
+      t.className = 'toast ' + (tipo||'');
+      t.textContent = msg;
+      document.body.appendChild(t);
+      setTimeout(function(){ t.remove(); }, tipo==='bad'?6000:3500);
+    }
+    // base64 <-> UTF-8 seguro
+    function b64EncodeUnicode(str){
+      var bytes = new TextEncoder().encode(str), bin = '';
+      for (var i=0;i<bytes.length;i++) bin += String.fromCharCode(bytes[i]);
+      return btoa(bin);
+    }
+    function b64DecodeUnicode(b64){
+      var bin = atob(b64.replace(/\s/g,'')), bytes = new Uint8Array(bin.length);
+      for (var i=0;i<bin.length;i++) bytes[i] = bin.charCodeAt(i);
+      return new TextDecoder().decode(bytes);
+    }
+    var GHBASE = "https://api.github.com/repos/" + REPO + "/contents/" + encodeURIComponent(FILE);
+    function ghHeaders(){
+      return { "Authorization":"Bearer "+token(), "Accept":"application/vnd.github+json", "X-GitHub-Api-Version":"2022-11-28" };
+    }
+
+    /* ================= Login ================= */
+    $('loginForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      if ($('pass').value === PASSWORD){
+        $('login').classList.add('hidden');
+        $('app').classList.remove('hidden');
+        iniciar();
+      } else {
+        $('loginErr').textContent = 'Contraseña incorrecta.';
+        $('pass').value=''; $('pass').focus();
+      }
+    });
+
+    /* ================= Token UI ================= */
+    function pintarTokenState(){
+      $('tokenState').textContent = token() ? '✓ Token guardado en este navegador.' : '⚠ Sin token: puedes ver y descargar, pero no guardar en el sitio.';
+    }
+    $('btnToken').addEventListener('click', function(){ $('tokenBox').open = true; $('tokenBox').scrollIntoView({behavior:'smooth'}); $('tokenInput').focus(); });
+    $('tokenSave').addEventListener('click', function(){
+      var v = $('tokenInput').value.trim();
+      if (!v){ toast('Pega un token primero.', 'bad'); return; }
+      localStorage.setItem(TOKEN_KEY, v); $('tokenInput').value='';
+      pintarTokenState(); toast('Token guardado.', 'ok'); cargar();
+    });
+    $('tokenClear').addEventListener('click', function(){ localStorage.removeItem(TOKEN_KEY); pintarTokenState(); toast('Token borrado.'); });
+
+    /* ================= Iniciar ================= */
+    function iniciar(){
+      pintarTokenState();
+      if (!token()){ $('tokenBox').open = true; }
+      cargar();
+    }
+    $('btnReload').addEventListener('click', cargar);
+
+    function setStatus(txt, cls){ var s=$('status'); s.textContent=txt; s.className='status'+(cls?' '+cls:''); }
+
+    function cargar(){
+      setStatus('Cargando…');
+      // Si hay token, leemos por la API (para obtener el sha); si no, leemos el público.
+      if (token()){
+        fetch(GHBASE + "?ref=main&t=" + Date.now(), { headers: ghHeaders() })
+          .then(function(r){ if(!r.ok) throw new Error('GitHub '+r.status); return r.json(); })
+          .then(function(j){ sha = j.sha; datos = JSON.parse(b64DecodeUnicode(j.content)); render(); setStatus('Listo (con token)','ok'); })
+          .catch(function(e){ setStatus('Error al leer: '+e.message,'bad'); leerPublico(); });
+      } else { leerPublico(); }
+    }
+    function leerPublico(){
+      fetch("productos.json?t=" + Date.now(), {cache:'no-store'})
+        .then(function(r){ return r.json(); })
+        .then(function(j){ datos = j; sha = null; render(); if(!token()) setStatus('Listo (solo lectura, sin token)'); })
+        .catch(function(e){ setStatus('No se pudo cargar productos.json: '+e.message,'bad'); });
+    }
+
+    /* ================= Render tabla ================= */
+    function opcionesSeccion(sel){
+      return SECCIONES.map(function(s){ return '<option value="'+s+'"'+(s===sel?' selected':'')+'>'+s+'</option>'; }).join('');
+    }
+    function opcionesCategoria(sel){
+      var o = '<option value="">—</option>';
+      o += CAT_VALIDAS.map(function(c){ return '<option value="'+c+'"'+(c===sel?' selected':'')+'>'+c+'</option>'; }).join('');
+      return o;
+    }
+    function esc(s){ return (s==null?'':String(s)).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+    function render(){
+      catNombre = {};
+      (datos.categorias||[]).forEach(function(c){ catNombre[c.id]=c.nombre; });
+      // llenar filtros
+      var fs=$('fSeccion'); fs.innerHTML='<option value="">Todas</option>'+SECCIONES.map(function(s){return '<option>'+s+'</option>';}).join('');
+      var fc=$('fCategoria'); fc.innerHTML='<option value="">Todas</option>'+CAT_VALIDAS.map(function(c){return '<option>'+c+'</option>';}).join('');
+
+      filas = [];
+      $('tbody').innerHTML='';
+      (datos.productos||[]).forEach(function(p){ agregarFila(p, false); });
+      aplicarFiltro();
+      contar();
+    }
+
+    function agregarFila(p, esNuevo){
+      var tr = document.createElement('tr');
+      var fotos = (p.fotos||[]).join('\n');
+      tr.innerHTML =
+        '<td><select class="f-seccion">'+opcionesSeccion(p.seccion||'obras')+'</select></td>'+
+        '<td><select class="f-categoria">'+opcionesCategoria(p.categoria||'')+'</select></td>'+
+        '<td class="nombre-actual">'+esc(esNuevo?'(nueva)':p.titulo)+'</td>'+
+        '<td><input type="text" class="f-nombre" placeholder="'+(esNuevo?'Nombre de la pieza':'(renombrar)')+'" value="'+esc(esNuevo?(p.titulo||''):'')+'"></td>'+
+        '<td><textarea class="f-desc" rows="2">'+esc(p.descripcion||'')+'</textarea></td>'+
+        '<td><input type="text" class="f-medidas" value="'+esc(p.medidas||'')+'"></td>'+
+        '<td class="col-precio"><input type="number" class="f-precio" value="'+esc(p.precio!=null?p.precio:'')+'"></td>'+
+        '<td class="fotos-cell"><textarea class="f-fotos" rows="2">'+esc(fotos)+'</textarea></td>'+
+        '<td class="check"><input type="checkbox" class="c-mod"></td>'+
+        '<td class="check"><input type="checkbox" class="c-del"></td>'+
+        '<td class="check"><input type="checkbox" class="c-new"'+(esNuevo?' checked':'')+'></td>';
+      $('tbody').appendChild(tr);
+
+      var fila = { tr:tr, orig:p, esNuevo:!!esNuevo };
+      filas.push(fila);
+
+      // detección de cambios
+      var campos = tr.querySelectorAll('.f-seccion,.f-categoria,.f-nombre,.f-desc,.f-medidas,.f-precio,.f-fotos');
+      campos.forEach(function(c){ c.addEventListener('input', function(){ marcarMod(fila); }); c.addEventListener('change', function(){ marcarMod(fila); }); });
+      tr.querySelector('.c-del').addEventListener('change', function(){ pintar(fila); contar(); });
+      tr.querySelector('.c-mod').addEventListener('change', function(){ pintar(fila); });
+      if (esNuevo){ marcarMod(fila); }
+      pintar(fila);
+    }
+
+    function valores(fila){
+      var tr=fila.tr;
+      return {
+        seccion: tr.querySelector('.f-seccion').value,
+        categoria: tr.querySelector('.f-categoria').value,
+        nombre: tr.querySelector('.f-nombre').value.trim(),
+        desc: tr.querySelector('.f-desc').value.trim(),
+        medidas: tr.querySelector('.f-medidas').value.trim(),
+        precio: tr.querySelector('.f-precio').value.trim(),
+        fotos: tr.querySelector('.f-fotos').value.split('\n').map(function(s){return s.trim();}).filter(Boolean),
+        del: tr.querySelector('.c-del').checked,
+        nuevo: tr.querySelector('.c-new').checked
+      };
+    }
+    function difiere(fila){
+      if (fila.esNuevo) return true;
+      var v=valores(fila), o=fila.orig;
+      if (v.seccion!==(o.seccion||'')) return true;
+      if (v.categoria!==(o.categoria||'')) return true;
+      if (v.nombre!=='' && v.nombre!==o.titulo) return true;
+      if (v.desc!==(o.descripcion||'')) return true;
+      if (v.medidas!==(o.medidas||'')) return true;
+      if (String(v.precio)!==String(o.precio!=null?o.precio:'')) return true;
+      if (v.fotos.join('|')!==(o.fotos||[]).join('|')) return true;
+      return false;
+    }
+    function marcarMod(fila){
+      fila.tr.querySelector('.c-mod').checked = difiere(fila);
+      pintar(fila);
+    }
+    function pintar(fila){
+      var tr=fila.tr;
+      tr.classList.toggle('del', tr.querySelector('.c-del').checked);
+      tr.classList.toggle('nuevo', tr.querySelector('.c-new').checked && !tr.querySelector('.c-del').checked);
+      tr.classList.toggle('mod', tr.querySelector('.c-mod').checked && !tr.querySelector('.c-del').checked && !tr.querySelector('.c-new').checked);
+    }
+
+    /* ================= Filtro ================= */
+    function aplicarFiltro(){
+      var s=$('fSeccion').value, c=$('fCategoria').value;
+      filas.forEach(function(f){
+        var v=valores(f);
+        var ok = (!s || v.seccion===s) && (!c || v.categoria===c);
+        f.tr.style.display = ok ? '' : 'none';
+      });
+    }
+    $('fSeccion').addEventListener('change', aplicarFiltro);
+    $('fCategoria').addEventListener('change', aplicarFiltro);
+
+    /* ================= Agregar / contar ================= */
+    $('btnAdd').addEventListener('click', function(){
+      var s=$('fSeccion').value||'obras', c=$('fCategoria').value||'';
+      agregarFila({ seccion:s, categoria:c, titulo:'', descripcion:'', medidas:'', precio:'', fotos:[] }, true);
+      aplicarFiltro(); contar();
+      var last = filas[filas.length-1].tr;
+      last.scrollIntoView({block:'center'}); last.querySelector('.f-nombre').focus();
+    });
+    function contar(){
+      var mod=0,del=0,nue=0;
+      filas.forEach(function(f){
+        if (f.tr.querySelector('.c-del').checked) del++;
+        else if (f.tr.querySelector('.c-new').checked) nue++;
+        else if (f.tr.querySelector('.c-mod').checked) mod++;
+      });
+      $('count').textContent = filas.length+' piezas · '+mod+' modif. · '+nue+' nuevas · '+del+' a eliminar';
+    }
+
+    /* ================= Construir productos.json ================= */
+    function articulo(nombre){ return /^(a|e|i|o|u|á|é|í)/i.test(nombre)? 'el' : 'el'; } // simple
+    function mensajeDe(seccion, nombre, viejo){
+      // Si es renombre y el mensaje viejo contenía el nombre, respeta la frase cambiando el nombre.
+      if (viejo && viejo.orig && viejo.orig.mensajeWhatsApp && viejo.orig.titulo && viejo.orig.mensajeWhatsApp.indexOf(viejo.orig.titulo)>=0){
+        return viejo.orig.mensajeWhatsApp.split(viejo.orig.titulo).join(nombre);
+      }
+      if (seccion==='sobre-pedido') return 'Hola Letija, quiero encargar '+nombre+' (desde $_precio MX). ¿Me das más información?';
+      if (seccion==='anteriores') return 'Hola Letija, me gustó '+nombre+' de tus obras anteriores. ¿Me das más información?';
+      return 'Hola Letija, me interesa la pieza '+nombre+' ($_precio MX). ¿Me das más información?';
+    }
+    function construir(){
+      var errores=[];
+      var productos=[];
+      filas.forEach(function(f, idx){
+        if (f.tr.querySelector('.c-del').checked) return; // eliminado
+        var v=valores(f);
+        var nombre = v.nombre || (f.esNuevo?'':f.orig.titulo);
+        if (!nombre){ errores.push('Fila '+(idx+1)+': falta el nombre.'); return; }
+        if (v.precio!=='' && isNaN(Number(v.precio))){ errores.push(nombre+': el precio debe ser un número.'); }
+        // Partimos del objeto original para conservar campos no editables (llenar, posicion, ocultarPrecio, imagenCompleta, etc.)
+        var base = f.esNuevo ? {} : JSON.parse(JSON.stringify(f.orig));
+        var renombre = (!f.esNuevo && v.nombre && v.nombre!==f.orig.titulo);
+        var out = {};
+        out.titulo = nombre;
+        out.seccion = v.seccion;
+        if (v.seccion==='obras'){ if(!v.categoria) errores.push(nombre+': falta la categoría (sección Obras).'); out.categoria = v.categoria; }
+        // conservar flags existentes
+        ['ocultarPrecio','llenar','imagenCompleta','posicion'].forEach(function(k){ if (base[k]!==undefined) out[k]=base[k]; });
+        out.precio = v.precio===''? (base.precio!=null?base.precio:0) : Number(v.precio);
+        out.medidas = v.medidas;
+        out.descripcion = v.desc;
+        // alt: si renombra, sustituye el nombre viejo; si es nuevo, genera uno
+        if (f.esNuevo){ out.alt = nombre + ' de cerámica artesanal'; }
+        else if (renombre && base.alt){ out.alt = base.alt.indexOf(f.orig.titulo)>=0 ? base.alt.split(f.orig.titulo).join(nombre) : base.alt; }
+        else { out.alt = base.alt || (nombre+' de cerámica artesanal'); }
+        out.fotos = v.fotos;
+        if (!out.fotos.length) errores.push(nombre+': no tiene fotos.');
+        // imagenCompleta para sobre-pedido conserva; mensaje
+        out.mensajeWhatsApp = (f.esNuevo)
+            ? mensajeDe(v.seccion, nombre, null)
+            : (renombre ? mensajeDe(v.seccion, nombre, f) : (base.mensajeWhatsApp || mensajeDe(v.seccion, nombre, null)));
+        // si cambió de sección y el mensaje viejo ya no aplica, regenerar
+        if (!f.esNuevo && !renombre && base.seccion!==v.seccion){ out.mensajeWhatsApp = mensajeDe(v.seccion, nombre, null); }
+        productos.push(out);
+      });
+      return { errores:errores, data:{ categorias: datos.categorias, productos: productos } };
+    }
+
+    /* ================= Guardar en GitHub ================= */
+    function fotosEliminadas(nuevoData){
+      // fotos que estaban y ya no están referenciadas por ninguna pieza
+      var antes={}, ahora={};
+      (datos.productos||[]).forEach(function(p){ (p.fotos||[]).forEach(function(f){ antes[f]=1; }); });
+      nuevoData.productos.forEach(function(p){ (p.fotos||[]).forEach(function(f){ ahora[f]=1; }); });
+      return Object.keys(antes).filter(function(f){ return !ahora[f]; });
+    }
+
+    $('btnSave').addEventListener('click', function(){
+      var r = construir();
+      if (r.errores.length){ toast('Revisa: '+r.errores[0], 'bad'); return; }
+      if (!token()){ toast('Necesitas guardar tu token de GitHub primero (botón 🔑).', 'bad'); $('tokenBox').open=true; return; }
+      var huerfanas = fotosEliminadas(r.data);
+      var msgConf = '¿Publicar los cambios en el sitio?';
+      if (huerfanas.length){ msgConf += '\n\nQuedan '+huerfanas.length+' foto(s) sin usar:\n'+huerfanas.join(', ')+'\n\n(No se borran los archivos; puedes eliminarlos manualmente si quieres.)'; }
+      if (!confirm(msgConf)) return;
+
+      var contenido = JSON.stringify(r.data, null, 2) + '\n';
+      var body = { message:'Editar catálogo desde el administrador', content:b64EncodeUnicode(contenido), branch:'main' };
+      if (sha) body.sha = sha;
+      $('btnSave').disabled=true; setStatus('Guardando…');
+      // refrescamos sha por si cambió
+      fetch(GHBASE+"?ref=main&t="+Date.now(), {headers:ghHeaders()})
+        .then(function(r2){ return r2.ok? r2.json(): null; })
+        .then(function(j){ if(j && j.sha) body.sha=j.sha; return fetch(GHBASE, {method:'PUT', headers:ghHeaders(), body:JSON.stringify(body)}); })
+        .then(function(r3){ return r3.json().then(function(j){ return {ok:r3.ok, j:j}; }); })
+        .then(function(res){
+          $('btnSave').disabled=false;
+          if (!res.ok){ setStatus('Error al guardar','bad'); toast('No se pudo guardar: '+(res.j.message||'error'), 'bad'); return; }
+          sha = res.j.content ? res.j.content.sha : null;
+          setStatus('Guardado ✓','ok');
+          toast('¡Guardado! En unos minutos se verá en el sitio.', 'ok');
+          datos = r.data; // el nuevo estado pasa a ser el actual
+          render();
+        })
+        .catch(function(e){ $('btnSave').disabled=false; setStatus('Error','bad'); toast('Error: '+e.message,'bad'); });
+    });
+
+    /* ================= Descargar productos.json ================= */
+    $('btnJson').addEventListener('click', function(){
+      var r=construir();
+      if (r.errores.length){ toast('Revisa: '+r.errores[0],'bad'); return; }
+      descargar('productos.json', JSON.stringify(r.data, null, 2)+'\n', 'application/json');
+    });
+    function descargar(nombre, texto, tipo){
+      var blob=new Blob([texto],{type:tipo}); var url=URL.createObjectURL(blob);
+      var a=document.createElement('a'); a.href=url; a.download=nombre; a.click(); URL.revokeObjectURL(url);
+    }
+
+    /* ================= CSV ================= */
+    var CSV_COLS = ['Seccion','Categoria','Nombre actual','Nuevo Nombre','Descripcion','Medidas','Precio','Fotos','Modificado','Eliminar','Nuevo'];
+    function csvCampo(s){ s=(s==null?'':String(s)); return '"'+s.replace(/"/g,'""')+'"'; }
+    $('btnCsvDown').addEventListener('click', function(){
+      var lin=[CSV_COLS.join(',')];
+      filas.forEach(function(f){
+        if (f.tr.style.display==='none') return; // respeta el filtro visible
+        var v=valores(f);
+        lin.push([ v.seccion, v.categoria, (f.esNuevo?'':f.orig.titulo), v.nombre, v.desc, v.medidas, v.precio,
+                   v.fotos.join(' | '),
+                   f.tr.querySelector('.c-mod').checked?'Sí':'', v.del?'Sí':'', v.nuevo?'Sí':'' ].map(csvCampo).join(','));
+      });
+      descargar('catalogo.csv', '﻿'+lin.join('\r\n'), 'text/csv');
+    });
+    $('btnCsvUp').addEventListener('click', function(){ $('csvFile').click(); });
+    $('csvFile').addEventListener('change', function(e){
+      var file=e.target.files[0]; if(!file) return;
+      var rd=new FileReader();
+      rd.onload=function(){ try{ importarCSV(rd.result); toast('CSV cargado. Revisa los cambios y guarda.', 'ok'); }catch(err){ toast('CSV inválido: '+err.message,'bad'); } $('csvFile').value=''; };
+      rd.readAsText(file);
+    });
+    function parseCSV(txt){
+      txt=txt.replace(/^﻿/,''); var rows=[], row=[], cur='', q=false;
+      for (var i=0;i<txt.length;i++){ var ch=txt[i];
+        if (q){ if(ch==='"'){ if(txt[i+1]==='"'){cur+='"';i++;} else q=false; } else cur+=ch; }
+        else { if(ch==='"') q=true; else if(ch===','){ row.push(cur); cur=''; }
+               else if(ch==='\n'){ row.push(cur); rows.push(row); row=[]; cur=''; }
+               else if(ch==='\r'){} else cur+=ch; } }
+      if(cur!==''||row.length){ row.push(cur); rows.push(row); }
+      return rows.filter(function(r){ return r.length>1 || (r.length===1 && r[0].trim()!==''); });
+    }
+    function importarCSV(txt){
+      var rows=parseCSV(txt); if(!rows.length) throw new Error('vacío');
+      var head=rows[0].map(function(h){return h.trim().toLowerCase();});
+      function col(nombre){ return head.indexOf(nombre.toLowerCase()); }
+      var iSec=col('Seccion')>=0?col('Seccion'):col('Sección'),
+          iCat=col('Categoria')>=0?col('Categoria'):col('Categoría'),
+          iAct=col('Nombre actual'), iNue=col('Nuevo Nombre'), iDesc=col('Descripcion')>=0?col('Descripcion'):col('Descripción'),
+          iMed=col('Medidas'), iPre=col('Precio'), iFot=col('Fotos'), iDel=col('Eliminar'), iNvo=col('Nuevo');
+      var porNombre={}; filas.forEach(function(f){ if(!f.esNuevo) porNombre[f.orig.titulo]=f; });
+      for (var r=1;r<rows.length;r++){
+        var c=rows[r]; if(!c.join('').trim()) continue;
+        var actual=(iAct>=0?c[iAct]:'').trim();
+        var esNvo=(iNvo>=0 && /s[íi]|x|1|true/i.test((c[iNvo]||'').trim())) || !actual;
+        var target = (!esNvo && porNombre[actual]) ? porNombre[actual] : null;
+        if (!target){
+          // nueva fila
+          agregarFila({ seccion:(iSec>=0?c[iSec]:'obras')||'obras', categoria:(iCat>=0?c[iCat]:'')||'',
+            titulo:(iNue>=0&&c[iNue].trim())?c[iNue].trim():actual, descripcion:iDesc>=0?c[iDesc]:'',
+            medidas:iMed>=0?c[iMed]:'', precio:iPre>=0?c[iPre]:'',
+            fotos:(iFot>=0?c[iFot]:'').split(/[|\n]/).map(function(s){return s.trim();}).filter(Boolean) }, true);
+        } else {
+          var tr=target.tr;
+          if(iSec>=0&&c[iSec].trim()) tr.querySelector('.f-seccion').value=c[iSec].trim();
+          if(iCat>=0) tr.querySelector('.f-categoria').value=c[iCat].trim();
+          if(iNue>=0) tr.querySelector('.f-nombre').value=c[iNue].trim();
+          if(iDesc>=0) tr.querySelector('.f-desc').value=c[iDesc];
+          if(iMed>=0) tr.querySelector('.f-medidas').value=c[iMed].trim();
+          if(iPre>=0) tr.querySelector('.f-precio').value=c[iPre].trim();
+          if(iFot>=0) tr.querySelector('.f-fotos').value=c[iFot].split(/[|\n]/).map(function(s){return s.trim();}).filter(Boolean).join('\n');
+          if(iDel>=0) tr.querySelector('.c-del').checked=/s[íi]|x|1|true/i.test((c[iDel]||'').trim());
+          marcarMod(target);
+        }
+      }
+      aplicarFiltro(); contar();
+    }
+  })();
+  </script>
+</body>
+</html>
