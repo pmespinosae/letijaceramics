@@ -225,6 +225,31 @@
     trigger.addEventListener('click', function () { open(list, name, 0); });
   });
 
+  /* ---------- Hover: mostrar la 2ª foto al pasar el cursor (piezas con 2+ fotos) ---------- */
+  document.querySelectorAll('.product-card').forEach(function (card) {
+    var origs = (card.getAttribute('data-images') || '').split('|').filter(function (s) { return s.trim() !== ''; });
+    if (origs.length < 2) return; // solo si hay al menos 2 fotos
+    var webps = (card.getAttribute('data-images-webp') || '').split('|').filter(function (s) { return s.trim() !== ''; });
+    var media = card.querySelector('.product-media');
+    var img = card.querySelector('.product-media img');
+    var source = card.querySelector('.product-media picture source');
+    if (!media || !img) return;
+
+    var prim = { webp: webps[0], orig: origs[0] };
+    var seg = { webp: webps[1], orig: origs[1] };
+
+    // Precargar la 2ª imagen para que el cambio sea instantáneo
+    var pre = new Image();
+    pre.src = (soportaWebp && seg.webp) ? seg.webp : seg.orig;
+
+    var mostrar = function (o) {
+      if (source && o.webp) source.setAttribute('srcset', o.webp);
+      img.setAttribute('src', o.orig);
+    };
+    media.addEventListener('mouseenter', function () { mostrar(seg); });
+    media.addEventListener('mouseleave', function () { mostrar(prim); });
+  });
+
   btnNext.addEventListener('click', next);
   btnPrev.addEventListener('click', prev);
   btnClose.addEventListener('click', close);
