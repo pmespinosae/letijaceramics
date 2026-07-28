@@ -24,8 +24,11 @@ function escapeHtml(str) {
     .replace(/"/g, '&quot;');
 }
 
+// Sello de versión de imágenes: se agrega a cada URL de foto para que los
+// navegadores no muestren versiones viejas en caché cuando se reencuadra una foto.
+const ASSET_VER = '20260728';
 function encodeFile(name) {
-  return encodeURIComponent(name);
+  return encodeURIComponent(name) + '?v=' + ASSET_VER;
 }
 
 /* ---------- WebP: usar la versión .webp si existe junto al original ---------- */

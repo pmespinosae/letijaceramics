@@ -478,7 +478,8 @@ a { color: inherit; text-decoration: none; }
 .product-media.media-cover img {
   object-fit: cover;
 }
-.product-card:hover .product-media img { transform: scale(1.04); }
+/* Sin zoom al hover: el efecto es el cambio a la 2ª foto (script.js).
+   Las fotos ya vienen normalizadas (pieza centrada y a tamaño uniforme). */
 .media-badge {
   position: absolute;
   right: 12px; bottom: 12px;

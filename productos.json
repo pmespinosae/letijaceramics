@@ -40,9 +40,7 @@
         "Florero.jpeg",
         "Florero Geometrico.png"
       ],
-      "mensajeWhatsApp": "Hola Letija, me interesa el Florero Dodecaedro ($_precio MX). ¿Me das más información?",
-      "llenar": true,
-      "posicion": "50% 50%"
+      "mensajeWhatsApp": "Hola Letija, me interesa el Florero Dodecaedro ($_precio MX). ¿Me das más información?"
     },
     {
       "titulo": "Florero Minimalista",
@@ -59,9 +57,7 @@
         "Florero 2c.png",
         "Florero 2d.png"
       ],
-      "mensajeWhatsApp": "Hola Letija, me interesa el Florero Minimalista ($_precio MX). ¿Me das más información?",
-      "llenar": true,
-      "posicion": "50% 50%"
+      "mensajeWhatsApp": "Hola Letija, me interesa el Florero Minimalista ($_precio MX). ¿Me das más información?"
     },
     {
       "titulo": "Florero Plateado",
@@ -77,9 +73,7 @@
         "Florero Negro 1.png",
         "Florero Negro 3.png"
       ],
-      "mensajeWhatsApp": "Hola Letija, me interesa el Florero Plateado ($_precio MX). ¿Me das más información?",
-      "llenar": true,
-      "posicion": "58% 50%"
+      "mensajeWhatsApp": "Hola Letija, me interesa el Florero Plateado ($_precio MX). ¿Me das más información?"
     },
     {
       "titulo": "Ensaladera Verde",
@@ -94,16 +88,12 @@
         "Ensaladera Verde a.png",
         "Ensaladera Verde b.png"
       ],
-      "mensajeWhatsApp": "Hola Letija, me interesa la Ensaladera Verde ($_precio MX). ¿Me das más información?",
-      "llenar": true,
-      "posicion": "49% 59%"
+      "mensajeWhatsApp": "Hola Letija, me interesa la Ensaladera Verde ($_precio MX). ¿Me das más información?"
     },
     {
       "titulo": "Ensaladera torneada",
       "seccion": "obras",
       "categoria": "bowls",
-      "llenar": true,
-      "posicion": "35% center",
       "precio": 900,
       "medidas": "Ø 22 × 7.5 cm",
       "descripcion": "Ensaladera torneada a mano, perfecta para lucir en la mesa y servir con estilo.",
@@ -130,9 +120,7 @@
         "Bowl Cafe c.png",
         "Bowl Cafe d.png"
       ],
-      "mensajeWhatsApp": "Hola Letija, me interesa el Bowl Café ($_precio MX). ¿Me das más información?",
-      "llenar": true,
-      "posicion": "56% 67%"
+      "mensajeWhatsApp": "Hola Letija, me interesa el Bowl Café ($_precio MX). ¿Me das más información?"
     },
     {
       "titulo": "Taza con mensaje",
@@ -146,9 +134,7 @@
         "Taza 1a.png",
         "Taza 1b.png"
       ],
-      "mensajeWhatsApp": "Hola Letija, me interesa la Taza con mensaje ($_precio MX). ¿Me das más información?",
-      "llenar": true,
-      "posicion": "55% 48%"
+      "mensajeWhatsApp": "Hola Letija, me interesa la Taza con mensaje ($_precio MX). ¿Me das más información?"
     },
     {
       "titulo": "Taza Azul para café express",
@@ -162,9 +148,7 @@
         "Taza 2a.png",
         "Taza 2b.png"
       ],
-      "mensajeWhatsApp": "Hola Letija, me interesa la Taza Azul para café express ($_precio MX). ¿Me das más información?",
-      "llenar": true,
-      "posicion": "45% 52%"
+      "mensajeWhatsApp": "Hola Letija, me interesa la Taza Azul para café express ($_precio MX). ¿Me das más información?"
     },
     {
       "titulo": "Taza Skyline",
@@ -179,9 +163,7 @@
         "Taza 3b.png",
         "Taza 3c.png"
       ],
-      "mensajeWhatsApp": "Hola Letija, me interesa la Taza Skyline ($_precio MX). ¿Me das más información?",
-      "llenar": true,
-      "posicion": "59% 49%"
+      "mensajeWhatsApp": "Hola Letija, me interesa la Taza Skyline ($_precio MX). ¿Me das más información?"
     },
     {
       "titulo": "Taza Café para café express",
@@ -195,9 +177,7 @@
         "Taza 4b.png",
         "Taza 4a.png"
       ],
-      "mensajeWhatsApp": "Hola Letija, me interesa la Taza Café para café express ($_precio MX). ¿Me das más información?",
-      "llenar": true,
-      "posicion": "58% 64%"
+      "mensajeWhatsApp": "Hola Letija, me interesa la Taza Café para café express ($_precio MX). ¿Me das más información?"
     },
     {
       "titulo": "Tazón con Pescados",
@@ -212,9 +192,7 @@
         "Tazon 1a.png",
         "Tazon 1b.png"
       ],
-      "mensajeWhatsApp": "Hola Letija, me interesa el Tazón con Pescados ($_precio MX). ¿Me das más información?",
-      "llenar": true,
-      "posicion": "61% 67%"
+      "mensajeWhatsApp": "Hola Letija, me interesa el Tazón con Pescados ($_precio MX). ¿Me das más información?"
     },
     {
       "titulo": "Tazón con Ballena",
@@ -228,9 +206,7 @@
         "Tazon 2a.png",
         "Tazon 2b.png"
       ],
-      "mensajeWhatsApp": "Hola Letija, me interesa el Tazón con Ballena ($_precio MX). ¿Me das más información?",
-      "llenar": true,
-      "posicion": "62% 40%"
+      "mensajeWhatsApp": "Hola Letija, me interesa el Tazón con Ballena ($_precio MX). ¿Me das más información?"
     },
     {
       "titulo": "Escultura Moderna",
@@ -246,9 +222,7 @@
         "Adorno 3b.png",
         "Adorno 3c.png"
       ],
-      "mensajeWhatsApp": "Hola Letija, me interesa la Escultura Moderna ($_precio MX). ¿Me das más información?",
-      "llenar": true,
-      "posicion": "50% 50%"
+      "mensajeWhatsApp": "Hola Letija, me interesa la Escultura Moderna ($_precio MX). ¿Me das más información?"
     },
     {
       "titulo": "Bowl Terracota",
@@ -263,9 +237,7 @@
         "Bowl Terracota b.png",
         "Bowl Terracota c.png"
       ],
-      "mensajeWhatsApp": "Hola Letija, me interesa el Bowl Terracota ($_precio MX). ¿Me das más información?",
-      "llenar": true,
-      "posicion": "50% 54%"
+      "mensajeWhatsApp": "Hola Letija, me interesa el Bowl Terracota ($_precio MX). ¿Me das más información?"
     },
     {
       "titulo": "Joyero para burós",
@@ -282,9 +254,7 @@
         "Descansa Lentes b.png",
         "Descansa Lentes c.png"
       ],
-      "mensajeWhatsApp": "Hola Letija, me interesa el Joyero para burós ($_precio MX). ¿Me das más información?",
-      "llenar": true,
-      "posicion": "46% 47%"
+      "mensajeWhatsApp": "Hola Letija, me interesa el Joyero para burós ($_precio MX). ¿Me das más información?"
     },
     {
       "titulo": "Tequilero",
@@ -300,9 +270,7 @@
         "Tequilero 1c.png",
         "Tequilero 1d.png"
       ],
-      "mensajeWhatsApp": "Hola Letija, me interesa el Tequilero ($_precio MX). ¿Me das más información?",
-      "llenar": true,
-      "posicion": "50% 63%"
+      "mensajeWhatsApp": "Hola Letija, me interesa el Tequilero ($_precio MX). ¿Me das más información?"
     },
     {
       "titulo": "Frases en Cerámica",
@@ -329,9 +297,7 @@
         "Letra e.png",
         "letra en sala.png"
       ],
-      "mensajeWhatsApp": "Hola Letija, quiero encargar Iniciales en cerámica ($_precio MX). ¿Me das más información?",
-      "llenar": true,
-      "posicion": "50% 49%"
+      "mensajeWhatsApp": "Hola Letija, quiero encargar Iniciales en cerámica ($_precio MX). ¿Me das más información?"
     },
     {
       "titulo": "Botanero",
@@ -355,9 +321,7 @@
       "fotos": [
         "Adornos en ceramica.png"
       ],
-      "mensajeWhatsApp": "Hola Letija, quiero encargar Adornos en Cerámica (desde $_precio MX). ¿Me das más información?",
-      "llenar": true,
-      "posicion": "50% 49%"
+      "mensajeWhatsApp": "Hola Letija, quiero encargar Adornos en Cerámica (desde $_precio MX). ¿Me das más información?"
     },
     {
       "titulo": "Cuadro para Sala",
