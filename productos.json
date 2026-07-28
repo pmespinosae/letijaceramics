@@ -31,7 +31,7 @@
       "titulo": "Florero Dodecaedro",
       "seccion": "obras",
       "categoria": "floreros",
-      "precio": 1000,
+      "precio": 1500,
       "medidas": "10 × 18 × 18 cm",
       "descripcion": "Escultura geométrica que transforma cualquier ramo en una pieza central. Doce caras que juegan con la luz.",
       "alt": "Florero Dodecaedro de cerámica artesanal con flores",
@@ -277,6 +277,7 @@
     {
       "titulo": "Frases en Cerámica",
       "seccion": "sobre-pedido",
+      "imagenCompleta": true,
       "precio": 1000,
       "medidas": "40 × 20 × 2 cm",
       "descripcion": "Tu frase favorita hecha cerámica. Un mensaje que decora y que permanece.",
@@ -285,7 +286,6 @@
         "Frases en Cerámica.jpeg",
         "Frases en Ceramica.png"
       ],
-      "imagenCompleta": true,
       "mensajeWhatsApp": "Hola Letija, quiero encargar Frases en Cerámica (desde $_precio MX). ¿Me das más información?"
     },
     {
