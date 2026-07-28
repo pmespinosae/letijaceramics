@@ -282,7 +282,9 @@
         "Descansa Lentes b.png",
         "Descansa Lentes c.png"
       ],
-      "mensajeWhatsApp": "Hola Letija, me interesa el Joyero para burós ($_precio MX). ¿Me das más información?"
+      "mensajeWhatsApp": "Hola Letija, me interesa el Joyero para burós ($_precio MX). ¿Me das más información?",
+      "llenar": true,
+      "posicion": "46% 47%"
     },
     {
       "titulo": "Tequilero",
@@ -327,7 +329,9 @@
         "Letra e.png",
         "letra en sala.png"
       ],
-      "mensajeWhatsApp": "Hola Letija, quiero encargar Iniciales en cerámica ($_precio MX). ¿Me das más información?"
+      "mensajeWhatsApp": "Hola Letija, quiero encargar Iniciales en cerámica ($_precio MX). ¿Me das más información?",
+      "llenar": true,
+      "posicion": "50% 49%"
     },
     {
       "titulo": "Botanero",
@@ -351,7 +355,9 @@
       "fotos": [
         "Adornos en ceramica.png"
       ],
-      "mensajeWhatsApp": "Hola Letija, quiero encargar Adornos en Cerámica (desde $_precio MX). ¿Me das más información?"
+      "mensajeWhatsApp": "Hola Letija, quiero encargar Adornos en Cerámica (desde $_precio MX). ¿Me das más información?",
+      "llenar": true,
+      "posicion": "50% 49%"
     },
     {
       "titulo": "Cuadro para Sala",
